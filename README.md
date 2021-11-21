@@ -1,38 +1,24 @@
-# create-svelte
+# Svelte Todo
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+Recreating [TodoMVC](https://todomvc.com/examples/vanilla-es6/) in Svelte.
 
-## Creating a project
+- [ ] Add todo
+  - [ ] After adding todo clear and focus input
+  - [ ] Show chevron if there are todos
+  - [ ] Use enter to add todo
+  - [ ] Mark todo as completed
+  - [ ] Mark all todos as completed
+  - [ ] Unmark todos as completed
+- [ ] Remove todo
+  - [ ] Hovering over a todo shows the option to remove it
+- [ ] Edit todo
+  - [ ] Use enter to accept edit
+- [ ] Show how many todos are left
+- [ ] Filter todos by **all**, **active**, **completed**
+- [ ] Clear completed todos
+- [ ] Persistent storage
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte@next
-
-# create a new project in my-app
-npm init svelte@next my-app
-```
-
-> Note: the `@next` is temporary
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
-
-```bash
-npm run build
-```
-
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+- [ ] Add tests
+  - [ ] Able to add a todo
+  - [ ] Able to remove a todo
+  - [ ] Able to edit a todo
