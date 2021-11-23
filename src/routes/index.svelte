@@ -3,6 +3,7 @@
     id: number
     text: string
     completed: boolean
+    editing: boolean
   }
 
   type Filters = 'all' | 'active' | 'completed'
@@ -11,22 +12,26 @@
     {
       id: 1,
       text: 'Todo 1',
-      completed: true
+      completed: true,
+      editing: false
     },
     {
       id: 2,
       text: 'Todo 2',
-      completed: false
+      completed: false,
+      editing: false
     },
     {
       id: 3,
       text: 'Todo 3',
-      completed: false
+      completed: false,
+      editing: false
     },
     {
       id: 4,
       text: 'Todo 4',
-      completed: false
+      completed: false,
+      editing: false
     }
   ]
 
@@ -41,10 +46,11 @@
   }
 
   function addTodo() {
-    let newTodo = {
+    let newTodo: Todo = {
       id: generateRandomId(),
       text: todo,
-      completed: false
+      completed: false,
+      editing: false
     }
     todos = [...todos, newTodo]
     todo = ''
@@ -52,6 +58,29 @@
 
   function removeTodo(id: number) {
     todos = todos.filter((todo) => todo.id !== id)
+  }
+
+  function toggleEdit(id: number) {
+    todos = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.editing = true
+      } else {
+        todo.editing = false
+      }
+
+      return todo
+    })
+  }
+
+  function editTodo(id: number) {
+    switch (event.key) {
+      case 'Escape':
+        console.log('escape')
+        break
+      case 'Enter':
+        console.log('enter')
+        break
+    }
   }
 
   function toggleCompleted() {
@@ -106,9 +135,9 @@
     </form>
 
     <ul class="todo-list">
-      {#each todos as { id, text, completed } (id)}
+      {#each todos as { id, text, completed, editing } (id)}
         {#if filter === 'all'}
-          <li class:completed class="todo">
+          <li class:completed class:editing class="todo">
             <div class="view">
               <input
                 bind:checked={completed}
@@ -116,9 +145,21 @@
                 class="toggle"
                 class:completed
               />
-              <label for="todo">{text}</label>
+              <label on:dblclick={() => toggleEdit(id)} for="todo">
+                {text}
+              </label>
               <button on:click={() => removeTodo(id)} class="remove" />
             </div>
+
+            {#if editing}
+              <input
+                class="edit"
+                on:keydown={() => editTodo(id)}
+                on:blur={() => editTodo(id)}
+                value={text}
+                type="text"
+              />
+            {/if}
           </li>
         {/if}
 
@@ -155,7 +196,10 @@
     </ul>
 
     <footer>
-      <span class="todo-count">{uncompleted} items left</span>
+      <span class="todo-count">
+        {uncompleted}
+        {uncompleted === 1 ? 'item' : 'items'} left
+      </span>
       <div class="filters">
         <button
           on:click={() => (filter = 'all')}
@@ -180,9 +224,9 @@
         >
       </div>
 
-      <button on:click={clearCompleted} class="clear-completed"
-        >Clear completed</button
-      >
+      <button on:click={clearCompleted} class="clear-completed">
+        Clear completed
+      </button>
     </footer>
   </section>
 </main>
