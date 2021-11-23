@@ -1,6 +1,4 @@
 <script lang="ts">
-  import '../styles/global.css'
-
   interface Todo {
     id: number
     text: string
