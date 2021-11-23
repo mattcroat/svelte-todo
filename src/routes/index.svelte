@@ -38,8 +38,6 @@
   $: todosAmount = todos.length
   $: uncompleted = todos.filter((todo) => !todo.completed).length
 
-  console.log(todos.length)
-
   function generateRandomId() {
     return Date.now()
   }
@@ -50,7 +48,6 @@
       text: todo,
       completed: false
     }
-    console.log(todos)
     todos = [...todos, newTodo]
     todo = ''
   }
@@ -79,6 +76,7 @@
 
   function clearCompleted() {
     todos = todos.filter((todo) => todo.completed !== true)
+    completed = false
   }
 </script>
 
@@ -111,18 +109,50 @@
 
     <ul class="todo-list">
       {#each todos as { id, text, completed } (id)}
-        <li class:completed class="todo">
-          <div class="view">
-            <input
-              bind:checked={completed}
-              type="checkbox"
-              class="toggle"
-              class:completed
-            />
-            <label for="todo">{text}</label>
-            <button on:click={() => removeTodo(id)} class="remove" />
-          </div>
-        </li>
+        {#if filter === 'all'}
+          <li class:completed class="todo">
+            <div class="view">
+              <input
+                bind:checked={completed}
+                type="checkbox"
+                class="toggle"
+                class:completed
+              />
+              <label for="todo">{text}</label>
+              <button on:click={() => removeTodo(id)} class="remove" />
+            </div>
+          </li>
+        {/if}
+
+        {#if filter === 'active' && !completed}
+          <li class:completed class="todo">
+            <div class="view">
+              <input
+                bind:checked={completed}
+                type="checkbox"
+                class="toggle"
+                class:completed
+              />
+              <label for="todo">{text}</label>
+              <button on:click={() => removeTodo(id)} class="remove" />
+            </div>
+          </li>
+        {/if}
+
+        {#if filter === 'completed' && completed}
+          <li class:completed class="todo">
+            <div class="view">
+              <input
+                bind:checked={completed}
+                type="checkbox"
+                class="toggle"
+                class:completed
+              />
+              <label for="todo">{text}</label>
+              <button on:click={() => removeTodo(id)} class="remove" />
+            </div>
+          </li>
+        {/if}
       {/each}
     </ul>
 
