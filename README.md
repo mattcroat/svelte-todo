@@ -5,6 +5,7 @@ Recreating [TodoMVC](https://todomvc.com/examples/vanilla-es6/) in Svelte.
 ## Feature list:
 
 - [x] Add todo
+  - [ ] Only show add todo if there are no other todos
   - [x] After adding todo clear and focus input
   - [x] Only show chevron if there are todos
   - [x] Use enter to add todo
@@ -21,7 +22,7 @@ Recreating [TodoMVC](https://todomvc.com/examples/vanilla-es6/) in Svelte.
 - [x] Filter todos by **all**, **active**, **completed**
   - [x] Highlight selected filter
 - [x] Clear completed todos
-  - [ ] Show only when there is at least one completed todo
+  - [x] Show only when there is at least one completed todo
 - [ ] Persistent storage
 - [ ] Add tests
   - [ ] Able to add a todo
