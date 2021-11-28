@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Todos from '../components/Todos.svelte'
-  import type { Todo } from '../types/todo'
+  import Todos from '$root/components/Todos.svelte'
+  import type { Todo } from '$root/types/todo'
 
   let todos: Todo[] = [
     {

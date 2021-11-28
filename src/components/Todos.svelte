@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Todo, Filters } from '../types/todo'
+  import type { Todo, Filters } from '$root/types/todo'
 
   export let todos: Todo[]
 
