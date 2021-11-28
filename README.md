@@ -5,7 +5,8 @@ Recreating [TodoMVC](https://todomvc.com/examples/vanilla-es6/) in Svelte.
 ## Feature list:
 
 - [x] Add todo
-  - [ ] Only show add todo if there are no other todos
+  - [x] Input should be focused when page loads
+  - [x] Only show add todo if there are no other todos
   - [x] After adding todo clear and focus input
   - [x] Only show chevron if there are todos
   - [x] Use enter to add todo
@@ -14,9 +15,9 @@ Recreating [TodoMVC](https://todomvc.com/examples/vanilla-es6/) in Svelte.
   - [x] Unmark todos as completed
 - [x] Remove todo
   - [x] Hovering over a todo shows the option to remove it
-- [ ] Edit todo
-  - [ ] Use enter to accept edit
-  - [ ] Escape cancels the edit
+- [x] Edit todo
+  - [x] Using **escape** and **enter** saves the edit
+  - [x] When focus leaves input save todo
 - [x] Show how many todos are left
   - [x] Use **item** when there's a single todo and **items** for many
 - [x] Filter todos by **all**, **active**, **completed**
@@ -26,9 +27,12 @@ Recreating [TodoMVC](https://todomvc.com/examples/vanilla-es6/) in Svelte.
 - [ ] Persistent storage
 - [ ] Add tests
   - [ ] Able to add a todo
+  - [ ] Able to mark todo as completed
+  - [ ] Able to unmark todo as completed
   - [ ] Able to remove a todo
   - [ ] Able to edit a todo
   - [ ] Able to mark todos as completed
   - [ ] Able to see how many todos are left
   - [ ] Able to filter todos
   - [ ] Able to clear completed todos
+- [ ] Animations
