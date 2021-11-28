@@ -1,8 +1,8 @@
 <script lang="ts">
   import Todos from '$root/components/Todos.svelte'
-  import type { Todo } from '$root/types/todo'
+  import type { ITodo } from '$root/types/todo'
 
-  let todos: Todo[] = [
+  let todos: ITodo[] = [
     {
       id: 1,
       text: 'Todo 1',

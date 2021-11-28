@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { Todo, Filters } from '$root/types/todo'
+  import Todo from './Todo.svelte'
+  import type { ITodo, FiltersType } from '$root/types/todo'
 
-  export let todos: Todo[]
+  export let todos: ITodo[]
 
   let todo: string = ''
-  let filter: Filters = 'all'
-  let editing: boolean = false
+  let filter: FiltersType = 'all'
 
   $: todosAmount = todos.length
   $: completed = todos.filter((todo) => todo.completed).length
@@ -17,7 +17,7 @@
   }
 
   function addTodo() {
-    let newTodo: Todo = {
+    let newTodo: ITodo = {
       id: generateRandomId(),
       text: todo,
       completed: false
@@ -30,13 +30,9 @@
     todos = todos.filter((todo) => todo.id !== id)
   }
 
-  function editTodo(event: KeyboardEvent, id: number) {
-    switch (event.key) {
-      case 'Escape':
-        console.log('escape')
-      case 'Enter':
-        console.log('enter')
-    }
+  function editTodo(id: number, newTodo: string) {
+    let currentTodo = todos.findIndex((todo) => todo.id === id)
+    todos[currentTodo].text = newTodo
   }
 
   function toggleCompleted(event: MouseEvent) {
@@ -48,7 +44,7 @@
     }))
   }
 
-  function filterTodos(todos: Todo[], filter: Filters) {
+  function filterTodos(todos: ITodo[], filter: FiltersType) {
     switch (filter) {
       case 'all':
         return todos
@@ -96,30 +92,7 @@
     {#if todosAmount}
       <ul class="todo-list">
         {#each filteredTodos as todo (todo.id)}
-          <li class:completed={todo.completed} class:editing class="todo">
-            <div class="view">
-              <input
-                bind:checked={todo.completed}
-                type="checkbox"
-                class="toggle"
-                class:completed={todo.completed}
-              />
-              <label on:dblclick={() => (editing = true)} for="todo">
-                {todo.text}
-              </label>
-              <button on:click={() => removeTodo(todo.id)} class="remove" />
-            </div>
-
-            {#if editing}
-              <input
-                class="edit"
-                on:input={() => console.log('input')}
-                on:blur={() => console.log('blur')}
-                value={todo.text}
-                type="text"
-              />
-            {/if}
-          </li>
+          <Todo {todo} {removeTodo} {editTodo} />
         {/each}
       </ul>
 
