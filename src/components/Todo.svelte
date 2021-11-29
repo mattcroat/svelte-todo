@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { fade, slide } from 'svelte/transition'
   import type { ITodo } from '$root/types/todo'
 
   export let todo: ITodo
@@ -38,7 +39,13 @@
   }
 </script>
 
-<li class:completed={todo.completed} class:editing class="todo">
+<li
+  in:slide
+  out:fade
+  class:completed={todo.completed}
+  class:editing
+  class="todo"
+>
   <div class="view">
     <input
       on:change={() => completeTodo(todo.id)}

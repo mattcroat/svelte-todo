@@ -116,6 +116,7 @@ body {
 
 .todo-list .todo {
   font-size: var(--font-24);
+  font-weight: 400;
   border-bottom: 1px solid #ededed;
 }
 

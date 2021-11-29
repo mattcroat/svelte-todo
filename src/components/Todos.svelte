@@ -1,6 +1,5 @@
 <script lang="ts">
   import { browser } from '$app/env'
-
   import Todo from './Todo.svelte'
   import type { ITodo, FiltersType } from '$root/types/todo'
 
