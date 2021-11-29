@@ -4,7 +4,17 @@
   import Todo from './Todo.svelte'
   import type { ITodo, FiltersType } from '$root/types/todo'
 
-  export let todos: ITodo[]
+  let todos: ITodo[] = []
+
+  if (browser) {
+    todos = JSON.parse(localStorage.getItem('todos')) ?? []
+  }
+
+  $: {
+    if (browser) {
+      localStorage.setItem('todos', JSON.stringify(todos))
+    }
+  }
 
   let todo: string = ''
   let filter: FiltersType = 'all'
