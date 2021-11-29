@@ -12,7 +12,7 @@ Recreating [TodoMVC](https://todomvc.com/examples/vanilla-es6/) in Svelte.
   - [x] Use enter to add todo
   - [x] Mark todo as completed
   - [x] Mark all todos as completed
-  - [x] Unmark todos as completed
+  - [x] Mark all todos as uncompleted
 - [x] Remove todo
   - [x] Hovering over a todo shows the option to remove it
 - [x] Edit todo
@@ -24,7 +24,7 @@ Recreating [TodoMVC](https://todomvc.com/examples/vanilla-es6/) in Svelte.
   - [x] Highlight selected filter
 - [x] Clear completed todos
   - [x] Show only when there is at least one completed todo
-- [ ] Persistent storage
+- [x] Persistent storage
 - [ ] Add tests
   - [ ] Able to add a todo
   - [ ] Able to mark todo as completed
