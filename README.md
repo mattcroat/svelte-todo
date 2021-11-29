@@ -35,4 +35,6 @@ Recreating [TodoMVC](https://todomvc.com/examples/vanilla-es6/) in Svelte.
   - [ ] Able to see how many todos are left
   - [ ] Able to filter todos
   - [ ] Able to clear completed todos
-- [ ] Animations
+- [x] Animations
+  - [x] Todo slides in when added
+  - [x] Todo fades out when removed
