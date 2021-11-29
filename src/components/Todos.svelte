@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { browser } from '$app/env'
+
   import Todo from './Todo.svelte'
   import type { ITodo, FiltersType } from '$root/types/todo'
 
@@ -24,6 +26,15 @@
     }
     todos = [...todos, newTodo]
     todo = ''
+  }
+
+  function completeTodo(id: number) {
+    todos = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed
+      }
+      return todo
+    })
   }
 
   function removeTodo(id: number) {
@@ -92,7 +103,7 @@
     {#if todosAmount}
       <ul class="todo-list">
         {#each filteredTodos as todo (todo.id)}
-          <Todo {todo} {removeTodo} {editTodo} />
+          <Todo {todo} {completeTodo} {removeTodo} {editTodo} />
         {/each}
       </ul>
 

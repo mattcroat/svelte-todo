@@ -2,6 +2,7 @@
   import type { ITodo } from '$root/types/todo'
 
   export let todo: ITodo
+  export let completeTodo: (id: number) => void
   export let removeTodo: (id: number) => void
   export let editTodo: (id: number, newTodo: string) => void
 
@@ -40,7 +41,8 @@
 <li class:completed={todo.completed} class:editing class="todo">
   <div class="view">
     <input
-      bind:checked={todo.completed}
+      on:change={() => completeTodo(todo.id)}
+      checked={todo.completed}
       type="checkbox"
       class="toggle"
       class:completed={todo.completed}
