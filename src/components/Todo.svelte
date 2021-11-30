@@ -46,18 +46,26 @@
   class:editing
   class="todo"
 >
-  <div class="view">
-    <input
-      on:change={() => completeTodo(todo.id)}
-      checked={todo.completed}
-      type="checkbox"
-      class="toggle"
-      class:completed={todo.completed}
-    />
-    <label on:dblclick={toggleEdit} for="todo">
+  <div class="todo-item">
+    <div>
+      <input
+        on:change={() => completeTodo(todo.id)}
+        checked={todo.completed}
+        id="todo"
+        class:completed={todo.completed}
+        class="toggle"
+        type="checkbox"
+      />
+      <label aria-label="Check todo" class="todo-check" for="todo" />
+    </div>
+    <span class="todo-text" on:dblclick={toggleEdit}>
       {todo.text}
-    </label>
-    <button on:click={() => removeTodo(todo.id)} class="remove" />
+    </span>
+    <button
+      aria-label="Remove todo"
+      on:click={() => removeTodo(todo.id)}
+      class="remove"
+    />
   </div>
 
   {#if editing}

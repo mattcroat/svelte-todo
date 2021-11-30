@@ -20,7 +20,7 @@
 
   $: todosAmount = todos.length
   $: completed = todos.filter((todo) => todo.completed).length
-  $: uncompleted = todos.filter((todo) => !todo.completed).length
+  $: incomplete = todos.filter((todo) => !todo.completed).length
   $: filteredTodos = filterTodos(todos, filter)
 
   function generateRandomId() {
@@ -81,9 +81,7 @@
 </script>
 
 <main>
-  <header>
-    <h1 class="title">todos</h1>
-  </header>
+  <h1 class="title">todos</h1>
 
   <section class="todos">
     <form on:submit|preventDefault={addTodo}>
@@ -116,10 +114,10 @@
         {/each}
       </ul>
 
-      <footer>
+      <div class="actions">
         <span class="todo-count">
-          {uncompleted}
-          {uncompleted === 1 ? 'item' : 'items'} left
+          {incomplete}
+          {incomplete === 1 ? 'item' : 'items'} left
         </span>
         <div class="filters">
           <button
@@ -152,7 +150,7 @@
         >
           Clear completed
         </button>
-      </footer>
+      </div>
     {/if}
   </section>
 </main>
