@@ -1,7 +1,9 @@
 <script lang="ts">
   import { browser } from '$app/env'
+
   import Todo from './Todo.svelte'
   import type { ITodo, FiltersType } from '$root/types/todo'
+  import '$root/styles/global.css'
 
   let todos: ITodo[] = []
 
@@ -154,3 +156,117 @@
     {/if}
   </section>
 </main>
+
+<style>
+  .title {
+    font-size: var(--font-80);
+    font-weight: inherit;
+    text-align: center;
+    color: var(--color-title);
+  }
+
+  .todos {
+    --width: 90%;
+    --todo-bg: hsl(0 0% 98%);
+    --todo-text: hsl(220 20% 14%);
+
+    width: var(--width);
+    margin: 0 auto;
+    color: var(--todo-text);
+    background-color: var(--todo-bg);
+    border-radius: var(--radius-base);
+    border: 1px solid var(--color-gray-90);
+    box-shadow: 0 0 4px var(--shadow-1);
+  }
+
+  @media (min-width: 540px) {
+    .todos {
+      --width: 500px;
+    }
+  }
+
+  .toggle-all {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    opacity: 0;
+  }
+
+  .toggle-all + label {
+    position: absolute;
+    font-size: 0;
+  }
+
+  .toggle-all + label:before {
+    content: '❯';
+    display: block;
+    padding: var(--spacing-16);
+    font-size: var(--font-24);
+    color: var(--color-gray-58);
+    transform: rotate(90deg);
+  }
+
+  .toggle-all:checked + label:before {
+    color: var(--color-gray-28);
+  }
+
+  .new-todo {
+    width: 100%;
+    padding: var(--spacing-16);
+    padding-left: 60px;
+    font-size: var(--font-24);
+    border: none;
+    border-bottom: 1px solid var(--shadow-1);
+  }
+
+  .todo-list {
+    list-style: none;
+  }
+
+  .actions {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-8) var(--spacing-16);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--color-gray-90);
+  }
+
+  .actions:before {
+    content: '';
+    height: 40px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 1px 1px hsla(0, 0%, 0%, 0.2), 0 8px 0 -3px hsl(0, 0%, 96%),
+      0 9px 1px -3px hsla(0, 0%, 0%, 0.2), 0 16px 0 -6px hsl(0, 0%, 96%),
+      0 17px 2px -6px hsla(0, 0%, 0%, 0.2);
+    z-index: -1;
+  }
+
+  .filters {
+    display: flex;
+    gap: var(--spacing-4);
+    list-style: none;
+  }
+
+  .filter {
+    padding: var(--spacing-4) var(--spacing-8);
+    border: 1px solid transparent;
+    border-radius: var(--radius-base);
+  }
+
+  .filter:hover {
+    border: 1px solid var(--color-highlight);
+  }
+
+  .selected {
+    border-color: var(--color-highlight);
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
+</style>
