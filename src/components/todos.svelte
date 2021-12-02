@@ -1,7 +1,7 @@
 <script lang="ts">
   import { browser } from '$app/env'
 
-  import Todo from './Todo.svelte'
+  import Todo from './todo.svelte'
   import type { ITodo, FiltersType } from '$root/types/todo'
   import '$root/styles/global.css'
 
