@@ -1,6 +1,5 @@
 <script lang="ts">
   import { fade, slide } from 'svelte/transition'
-
   import type { ITodo } from '$root/types/todo'
 
   export let todo: ITodo

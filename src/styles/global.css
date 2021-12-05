@@ -62,6 +62,10 @@ button {
   cursor: pointer;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 :focus,
 .toggle:focus + label,
 .toggle-all:focus + label {
