@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { tick } from 'svelte'
   import { browser } from '$app/env'
 
   import Todo from './todo.svelte'
@@ -21,11 +22,13 @@
   }
 
   let selectedFilter: FiltersType = 'all'
+  let filtering = false
 
   $: amountTodos = todos.length
   $: completedTodos = todos.filter((todo) => todo.completed).length
   $: incompleteTodos = todos.filter((todo) => !todo.completed).length
   $: filteredTodos = filterTodos(todos, selectedFilter)
+  $: duration = filtering ? 0 : 250
 
   function generateRandomId(): number {
     return Date.now()
@@ -68,8 +71,12 @@
     }))
   }
 
-  function setFilter(newFilter: FiltersType): void {
+  async function setFilter(newFilter: FiltersType): Promise<void> {
+    filtering = true
+    await tick()
     selectedFilter = newFilter
+    await tick()
+    filtering = false
   }
 
   function filterTodos(todos: ITodo[], filter: FiltersType): ITodo[] {
@@ -97,7 +104,7 @@
     {#if amountTodos}
       <ul class="todo-list">
         {#each filteredTodos as todo (todo.id)}
-          <Todo {todo} {completeTodo} {removeTodo} {editTodo} />
+          <Todo {todo} {completeTodo} {removeTodo} {editTodo} {duration} />
         {/each}
       </ul>
 

@@ -6,6 +6,7 @@
   export let completeTodo: (id: number) => void
   export let removeTodo: (id: number) => void
   export let editTodo: (id: number, newTodo: string) => void
+  export let duration: number
 
   let editing: boolean = false
 
@@ -40,8 +41,8 @@
 </script>
 
 <li
-  in:slide
-  out:fade
+  in:slide={{ duration }}
+  out:fade={{ duration }}
   class:completed={todo.completed}
   class:editing
   class="todo"
