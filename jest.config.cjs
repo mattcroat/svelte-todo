@@ -1,9 +1,15 @@
 module.exports = {
   transform: {
-    '^.+\\.svelte$': 'svelte-jester',
+    '^.+\\.svelte$': [
+      'svelte-jester',
+      {
+        preprocess: true
+      }
+    ],
+    '^.+\\.ts$': 'ts-jest',
     '^.+\\.js$': 'babel-jest'
   },
   testEnvironment: 'jsdom',
-  moduleFileExtensions: ['js', 'svelte'],
+  moduleFileExtensions: ['js', 'ts', 'svelte'],
   setupFilesAfterEnv: ['@testing-library/jest-dom']
 }
