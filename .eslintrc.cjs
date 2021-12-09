@@ -4,7 +4,9 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier'
+    'prettier',
+    'plugin:testing-library/dom',
+    'plugin:jest-dom/recommended'
   ],
   plugins: ['svelte3', '@typescript-eslint', 'testing-library', 'jest-dom'],
   ignorePatterns: ['*.cjs'],

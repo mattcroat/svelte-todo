@@ -5,5 +5,5 @@ module.exports = {
   },
   testEnvironment: 'jsdom',
   moduleFileExtensions: ['js', 'svelte'],
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect']
+  setupFilesAfterEnv: ['@testing-library/jest-dom']
 }
