@@ -11,5 +11,9 @@ module.exports = {
   },
   testEnvironment: 'jsdom',
   moduleFileExtensions: ['js', 'ts', 'svelte'],
-  setupFilesAfterEnv: ['@testing-library/jest-dom']
+  setupFilesAfterEnv: ['@testing-library/jest-dom'],
+  moduleNameMapper: {
+    '^\\$app(.*)$': '<rootDir>/.svelte-kit/dev/runtime/app$1',
+    '^\\$root/(.+)$': '<rootDir>/src/$1'
+  }
 }
