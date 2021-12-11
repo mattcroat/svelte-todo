@@ -27,9 +27,10 @@
   <!-- svelte-ignore a11y-autofocus -->
   <input
     bind:value={todo}
-    type="text"
+    id="new-todo"
     class="new-todo"
     placeholder="What needs to be done?"
+    type="text"
     autofocus
   />
 </form>

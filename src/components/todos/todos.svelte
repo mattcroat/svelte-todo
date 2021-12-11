@@ -1,25 +1,25 @@
 <script lang="ts">
   import { tick } from 'svelte'
-  import { browser } from '$app/env'
+  // import { browser } from '$app/env'
 
-  import Todo from './todo.svelte'
-  import NewTodo from './new-todo.svelte'
-  import Filters from './filters.svelte'
-  import ItemsLeft from './items-left.svelte'
-  import ClearCompletedTodos from './clear-completed.svelte'
+  import Todo from '$root/components/todo/todo.svelte'
+  import NewTodo from '$root/components/add-todo/add-todo.svelte'
+  import Filters from '$root/components/filter-todos/filter-todos.svelte'
+  import ItemsLeft from '$root/components/todos-left/todos-left.svelte'
+  import ClearCompletedTodos from '$root/components/clear-completed/clear-completed.svelte'
   import type { ITodo, FiltersType } from '$root/types/todo'
 
   let todos: ITodo[] = []
 
-  if (browser) {
-    todos = JSON.parse(localStorage.getItem('todos')) ?? []
-  }
+  // if (browser) {
+  //   todos = JSON.parse(localStorage.getItem('todos')) ?? []
+  // }
 
-  $: {
-    if (browser) {
-      localStorage.setItem('todos', JSON.stringify(todos))
-    }
-  }
+  // $: {
+  //   if (browser) {
+  //     localStorage.setItem('todos', JSON.stringify(todos))
+  //   }
+  // }
 
   let selectedFilter: FiltersType = 'all'
   let filtering = false
