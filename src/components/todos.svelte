@@ -2,11 +2,11 @@
   import { tick } from 'svelte'
   // import { browser } from '$app/env'
 
-  import Todo from '$root/components/todo/todo.svelte'
-  import NewTodo from '$root/components/add-todo/add-todo.svelte'
-  import Filters from '$root/components/filter-todos/filter-todos.svelte'
-  import ItemsLeft from '$root/components/todos-left/todos-left.svelte'
-  import ClearCompletedTodos from '$root/components/clear-completed/clear-completed.svelte'
+  import Todo from './todo.svelte'
+  import NewTodo from './add-todo.svelte'
+  import Filters from './filter-todos.svelte'
+  import ItemsLeft from './todos-left.svelte'
+  import ClearCompletedTodos from './clear-completed.svelte'
   import type { ITodo, FiltersType } from '$root/types/todo'
 
   let todos: ITodo[] = []
@@ -38,7 +38,7 @@
     let newTodo: ITodo = {
       id: generateRandomId(),
       text: todo,
-      completed: false
+      completed: false,
     }
     todos = [...todos, newTodo]
     todo = ''
@@ -67,7 +67,7 @@
 
     todos = todos.map((todo) => ({
       ...todo,
-      completed: checked
+      completed: checked,
     }))
   }
 
