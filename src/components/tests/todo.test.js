@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/svelte'
 
-import Todo from './todo.svelte'
+import Todo from '../todo.svelte'
 
 // todo: should display todo item
 // todo: able to edit todo item
@@ -16,7 +16,7 @@ test('should display todo item', () => {
     duration: 0,
     editTodo: jest.fn(),
     removeTodo: jest.fn(),
-    completeTodo: jest.fn()
+    completeTodo: jest.fn(),
   }
 
   render(Todo, { todo, ...props })

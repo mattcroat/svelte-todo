@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/svelte'
 
-import ClearCompleted from './clear-completed.svelte'
+import ClearCompleted from '../clear-completed.svelte'
 
 function renderCompletedTodos(completedTodos = 0) {
   let props = {
     clearCompleted: jest.fn(),
-    completedTodos
+    completedTodos,
   }
   render(ClearCompleted, { ...props })
   return props

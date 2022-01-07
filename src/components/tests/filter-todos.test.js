@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/svelte'
 
-import FilterTodos from './filter-todos.svelte'
+import FilterTodos from '../filter-todos.svelte'
 
 function renderFilterTodos(selectedFilter) {
   let props = {
     selectedFilter,
-    setFilter: jest.fn()
+    setFilter: jest.fn(),
   }
 
   render(FilterTodos, { ...props })
@@ -17,7 +17,7 @@ function renderFilterTodos(selectedFilter) {
   return {
     filterAllElement,
     filterActiveElement,
-    filterCompletedElement
+    filterCompletedElement,
   }
 }
 
