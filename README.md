@@ -1,6 +1,6 @@
 # Svelte Todo
 
-Recreating [TodoMVC](https://todomvc.com/examples/vanilla-es6/) in Svelte.
+[TodoMVC](https://todomvc.com/examples/vanilla-es6/) in Svelte.
 
 ## Feature list:
 
