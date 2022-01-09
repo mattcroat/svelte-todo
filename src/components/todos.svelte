@@ -1,33 +1,24 @@
 <script lang="ts">
   import { tick } from 'svelte'
-  // import { browser } from '$app/env'
+
+  import { useStorage } from '$root/stores/useStorage'
+  import type { ITodo, FiltersType } from '$root/types/todo'
 
   import Todo from './todo.svelte'
   import NewTodo from './add-todo.svelte'
   import Filters from './filter-todos.svelte'
   import ItemsLeft from './todos-left.svelte'
   import ClearCompletedTodos from './clear-completed.svelte'
-  import type { ITodo, FiltersType } from '$root/types/todo'
 
-  let todos: ITodo[] = []
-
-  // if (browser) {
-  //   todos = JSON.parse(localStorage.getItem('todos')) ?? []
-  // }
-
-  // $: {
-  //   if (browser) {
-  //     localStorage.setItem('todos', JSON.stringify(todos))
-  //   }
-  // }
+  let todos = useStorage<ITodo[]>('todos', [])
 
   let selectedFilter: FiltersType = 'all'
   let filtering = false
 
-  $: amountTodos = todos.length
-  $: completedTodos = todos.filter((todo) => todo.completed).length
-  $: incompleteTodos = todos.filter((todo) => !todo.completed).length
-  $: filteredTodos = filterTodos(todos, selectedFilter)
+  $: amountTodos = $todos.length
+  $: completedTodos = $todos.filter((todo) => todo.completed).length
+  $: incompleteTodos = $todos.filter((todo) => !todo.completed).length
+  $: filteredTodos = filterTodos($todos, selectedFilter)
   $: duration = filtering ? 0 : 250
 
   function generateRandomId(): number {
@@ -40,12 +31,12 @@
       text: todo,
       completed: false,
     }
-    todos = [...todos, newTodo]
+    $todos = [...$todos, newTodo]
     todo = ''
   }
 
   function completeTodo(id: number): void {
-    todos = todos.map((todo) => {
+    $todos = $todos.map((todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed
       }
@@ -54,18 +45,18 @@
   }
 
   function removeTodo(id: number): void {
-    todos = todos.filter((todo) => todo.id !== id)
+    $todos = $todos.filter((todo) => todo.id !== id)
   }
 
   function editTodo(id: number, newTodo: string): void {
-    let currentTodo = todos.findIndex((todo) => todo.id === id)
+    let currentTodo = $todos.findIndex((todo) => todo.id === id)
     todos[currentTodo].text = newTodo
   }
 
   function toggleCompleted(event: MouseEvent): void {
     let { checked } = event.target as HTMLInputElement
 
-    todos = todos.map((todo) => ({
+    $todos = $todos.map((todo) => ({
       ...todo,
       completed: checked,
     }))
@@ -91,7 +82,7 @@
   }
 
   function clearCompleted(): void {
-    todos = todos.filter((todo) => todo.completed !== true)
+    $todos = $todos.filter((todo) => todo.completed !== true)
   }
 </script>
 
