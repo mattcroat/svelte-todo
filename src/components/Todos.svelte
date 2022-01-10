@@ -10,17 +10,20 @@
   import TodosLeft from './TodosLeft.svelte'
   import ClearTodos from './ClearTodos.svelte'
 
+  // state
   let todos = useStorage<ITodo[]>('todos', [])
 
   let selectedFilter: FiltersType = 'all'
   let filtering = false
 
+  // computed
   $: amountTodos = $todos.length
   $: completedTodos = $todos.filter((todo) => todo.completed).length
   $: incompleteTodos = $todos.filter((todo) => !todo.completed).length
   $: filteredTodos = filterTodos($todos, selectedFilter)
   $: duration = filtering ? 0 : 250
 
+  // methods
   function generateRandomId(): string {
     return Math.random().toString(16).slice(2)
   }
