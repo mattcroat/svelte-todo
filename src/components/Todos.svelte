@@ -4,11 +4,11 @@
   import { useStorage } from '$root/stores/useStorage'
   import type { ITodo, FiltersType } from '$root/types/todo'
 
-  import Todo from './todo.svelte'
-  import NewTodo from './add-todo.svelte'
-  import Filters from './filter-todos.svelte'
-  import ItemsLeft from './todos-left.svelte'
-  import ClearCompletedTodos from './clear-completed.svelte'
+  import AddTodo from './AddTodo.svelte'
+  import Todo from './Todo.svelte'
+  import FilterTodos from './FilterTodos.svelte'
+  import TodosLeft from './TodosLeft.svelte'
+  import ClearTodos from './ClearTodos.svelte'
 
   let todos = useStorage<ITodo[]>('todos', [])
 
@@ -21,6 +21,7 @@
   $: filteredTodos = filterTodos($todos, selectedFilter)
   $: duration = filtering ? 0 : 250
 
+  // todo: generate random hex value
   function generateRandomId(): number {
     return Date.now()
   }
@@ -90,7 +91,7 @@
   <h1 class="title">todos</h1>
 
   <section class="todos">
-    <NewTodo {addTodo} {toggleCompleted} amount={amountTodos} />
+    <AddTodo {addTodo} {toggleCompleted} amount={amountTodos} />
 
     {#if amountTodos}
       <ul class="todo-list">
@@ -100,9 +101,9 @@
       </ul>
 
       <div class="actions">
-        <ItemsLeft {incompleteTodos} />
-        <Filters {selectedFilter} {setFilter} />
-        <ClearCompletedTodos {clearCompleted} {completedTodos} />
+        <TodosLeft {incompleteTodos} />
+        <FilterTodos {selectedFilter} {setFilter} />
+        <ClearTodos {clearCompleted} {completedTodos} />
       </div>
     {/if}
   </section>

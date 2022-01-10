@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/svelte'
 
-import TodosLeft from '../todos-left.svelte'
+import TodosLeft from '../TodosLeft.svelte'
 
 function renderTodosLeft(incompleteTodos = 4) {
   let props = { incompleteTodos }

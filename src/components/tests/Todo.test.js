@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/svelte'
 
-import Todo from '../todo.svelte'
+import Todo from '../Todo.svelte'
 
 // todo: should display todo item
 // todo: able to edit todo item

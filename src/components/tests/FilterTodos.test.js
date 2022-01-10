@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/svelte'
 
-import FilterTodos from '../filter-todos.svelte'
+import FilterTodos from '../FilterTodos.svelte'
 
 function renderFilterTodos(selectedFilter) {
   let props = {

@@ -1,7 +1,7 @@
 import { tick } from 'svelte'
 import { fireEvent, render, screen } from '@testing-library/svelte'
 
-import Todos from '../todos.svelte'
+import Todos from '../Todos.svelte'
 
 // todo: able to add todo
 // todo: check all todos

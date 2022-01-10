@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/svelte'
 
-import AddTodo from '../add-todo.svelte'
+import AddTodo from '../AddTodo.svelte'
 
 function renderAddTodo(amount = 0) {
   let props = {
