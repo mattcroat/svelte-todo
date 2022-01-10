@@ -53,13 +53,16 @@
         on:change={() => completeTodo(todo.id)}
         checked={todo.completed}
         id="todo"
-        class:completed={todo.completed}
         class="toggle"
         type="checkbox"
       />
       <label aria-label="Check todo" class="todo-check" for="todo" />
     </div>
-    <span class="todo-text" on:dblclick={toggleEdit}>
+    <span
+      class:completed={todo.completed}
+      class="todo-text"
+      on:dblclick={toggleEdit}
+    >
       {todo.text}
     </span>
     <button
@@ -105,7 +108,7 @@
     border-radius: 100%;
   }
 
-  .completed .todo-text {
+  .completed {
     color: var(--color-gray-58);
     text-decoration: line-through;
   }
