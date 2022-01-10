@@ -1,9 +1,13 @@
 <script lang="ts">
-  export let addTodo: (todo: string) => void
-  export let toggleCompleted: (event: MouseEvent) => void
-  export let amount: number
+  type AddTodoType = (todo: string) => void
+  type ToggleCompletedType = (event: MouseEvent) => void
+  type AmountType = number
 
-  let todo: string = ''
+  export let addTodo: AddTodoType
+  export let toggleCompleted: ToggleCompletedType
+  export let amount: AmountType
+
+  let todo = ''
 
   function handleSubmit() {
     addTodo(todo)

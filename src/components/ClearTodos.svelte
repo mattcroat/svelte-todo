@@ -1,6 +1,9 @@
 <script lang="ts">
-  export let clearCompleted: () => void
-  export let completedTodos: number
+  type ClearCompletedType = () => void
+  type CompletedTodosType = number
+
+  export let clearCompleted: ClearCompletedType
+  export let completedTodos: CompletedTodosType
 </script>
 
 <button

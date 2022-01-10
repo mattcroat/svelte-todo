@@ -2,11 +2,16 @@
   import { fade, slide } from 'svelte/transition'
   import type { ITodo } from '$root/types/todo'
 
+  type CompleteTodoType = (id: string) => void
+  type RemoveTodoType = (id: string) => void
+  type EditTodoType = (id: string, newTodo: string) => void
+  type DurationType = number
+
   export let todo: ITodo
-  export let completeTodo: (id: number) => void
-  export let removeTodo: (id: number) => void
-  export let editTodo: (id: number, newTodo: string) => void
-  export let duration: number
+  export let completeTodo: CompleteTodoType
+  export let removeTodo: RemoveTodoType
+  export let editTodo: EditTodoType
+  export let duration: DurationType
 
   let editing: boolean = false
 

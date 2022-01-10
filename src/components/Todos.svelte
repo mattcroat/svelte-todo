@@ -21,9 +21,8 @@
   $: filteredTodos = filterTodos($todos, selectedFilter)
   $: duration = filtering ? 0 : 250
 
-  // todo: generate random hex value
-  function generateRandomId(): number {
-    return Date.now()
+  function generateRandomId(): string {
+    return Math.random().toString(16).slice(2)
   }
 
   function addTodo(todo: string): void {
@@ -36,7 +35,7 @@
     todo = ''
   }
 
-  function completeTodo(id: number): void {
+  function completeTodo(id: string): void {
     $todos = $todos.map((todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed
@@ -45,11 +44,11 @@
     })
   }
 
-  function removeTodo(id: number): void {
+  function removeTodo(id: string): void {
     $todos = $todos.filter((todo) => todo.id !== id)
   }
 
-  function editTodo(id: number, newTodo: string): void {
+  function editTodo(id: string, newTodo: string): void {
     let currentTodo = $todos.findIndex((todo) => todo.id === id)
     todos[currentTodo].text = newTodo
   }
