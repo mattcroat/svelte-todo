@@ -18,8 +18,8 @@
 
   // computed
   $: amountTodos = $todos.length
-  $: completedTodos = $todos.filter((todo) => todo.completed).length
   $: incompleteTodos = $todos.filter((todo) => !todo.completed).length
+  $: completedTodos = $todos.filter((todo) => todo.completed).length
   $: filteredTodos = filterTodos($todos, selectedFilter)
   $: duration = filtering ? 0 : 250
 

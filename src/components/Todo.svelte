@@ -13,13 +13,13 @@
   export let editTodo: EditTodoType
   export let duration: DurationType
 
-  let editing: boolean = false
+  let editing = false
 
   function toggleEdit() {
     editing = true
   }
 
-  function handleEdit(event: KeyboardEvent, id: number) {
+  function handleEdit(event: KeyboardEvent, id: string) {
     let pressedKey = event.key
     let targetElement = event.target as HTMLInputElement
     let newTodo = targetElement.value
@@ -35,7 +35,7 @@
     }
   }
 
-  function handleBlur(event: FocusEvent, id: number) {
+  function handleBlur(event: FocusEvent, id: string) {
     let targetElement = event.target as HTMLInputElement
     let newTodo = targetElement.value
 
@@ -45,13 +45,7 @@
   }
 </script>
 
-<li
-  in:slide={{ duration }}
-  out:fade={{ duration }}
-  class:completed={todo.completed}
-  class:editing
-  class="todo"
->
+<li in:slide={{ duration }} out:fade={{ duration }} class:editing class="todo">
   <div class="todo-item">
     <div>
       <input
@@ -64,9 +58,9 @@
       <label aria-label="Check todo" class="todo-check" for="todo" />
     </div>
     <span
+      on:dblclick={toggleEdit}
       class:completed={todo.completed}
       class="todo-text"
-      on:dblclick={toggleEdit}
     >
       {todo.text}
     </span>
