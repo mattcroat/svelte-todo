@@ -17,7 +17,7 @@
   let filtering = false
 
   // computed
-  $: amountTodos = $todos.length
+  $: todosAmount = $todos.length
   $: incompleteTodos = $todos.filter((todo) => !todo.completed).length
   $: completedTodos = $todos.filter((todo) => todo.completed).length
   $: filteredTodos = filterTodos($todos, selectedFilter)
@@ -93,9 +93,9 @@
   <h1 class="title">todos</h1>
 
   <section class="todos">
-    <AddTodo {addTodo} {toggleCompleted} amount={amountTodos} />
+    <AddTodo {addTodo} {toggleCompleted} {todosAmount} />
 
-    {#if amountTodos}
+    {#if todosAmount}
       <ul class="todo-list">
         {#each filteredTodos as todo (todo.id)}
           <Todo {todo} {completeTodo} {removeTodo} {editTodo} {duration} />
