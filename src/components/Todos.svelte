@@ -35,7 +35,6 @@
       completed: false,
     }
     $todos = [...$todos, newTodo]
-    todo = ''
   }
 
   function completeTodo(id: string): void {
