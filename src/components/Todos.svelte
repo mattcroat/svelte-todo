@@ -12,7 +12,6 @@
 
   // state
   let todos = useStorage<ITodo[]>('todos', [])
-
   let selectedFilter: FiltersType = 'all'
   let filtering = false
 
