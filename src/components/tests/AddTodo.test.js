@@ -6,7 +6,7 @@ function renderAddTodo(amount = 0) {
   let props = {
     addTodo: jest.fn(),
     toggleCompleted: jest.fn(),
-    amount,
+    todosAmount: amount,
   }
   render(AddTodo, { ...props })
   return props
