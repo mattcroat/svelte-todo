@@ -51,7 +51,7 @@
 
   function editTodo(id: string, newTodo: string): void {
     let currentTodo = $todos.findIndex((todo) => todo.id === id)
-    todos[currentTodo].text = newTodo
+    $todos[currentTodo].text = newTodo
   }
 
   function toggleCompleted(event: MouseEvent): void {
