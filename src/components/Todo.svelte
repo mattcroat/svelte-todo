@@ -49,6 +49,7 @@
   <div class="todo-item">
     <div>
       <input
+        data-testid={todo.text}
         on:change={() => completeTodo(todo.id)}
         checked={todo.completed}
         id="todo"
@@ -65,6 +66,7 @@
       {todo.text}
     </span>
     <button
+      data-testid="remove"
       aria-label="Remove todo"
       on:click={() => removeTodo(todo.id)}
       class="remove"
@@ -74,6 +76,7 @@
   {#if editing}
     <!-- svelte-ignore a11y-autofocus -->
     <input
+      data-testid="edit"
       on:keydown={(event) => handleEdit(event, todo.id)}
       on:blur={(event) => handleBlur(event, todo.id)}
       class="edit"
