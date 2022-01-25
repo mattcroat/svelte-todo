@@ -153,6 +153,4 @@ test('able to clear completed todo items', async () => {
     expect(queryByText(container, /todo item 3/i)).not.toBeInTheDocument()
     expect(queryByText(container, /todo item 4/i)).not.toBeInTheDocument()
   })
-
-  screen.debug()
 })
