@@ -28,4 +28,4 @@
 - [x] Animations
   - [x] Todo slides in when added
   - [x] Todo fades out when removed
-- [ ] Add tests
+- [x] Add tests
