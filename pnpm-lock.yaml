@@ -8,6 +8,7 @@ specifiers:
   '@testing-library/jest-dom': ^5.16.1
   '@testing-library/svelte': ^3.0.3
   '@tsconfig/svelte': ^2.0.1
+  '@types/jest': ^27.4.0
   babel-jest: ^27.4.6
   jest: ^27.4.7
   svelte: ^3.44.0
@@ -27,13 +28,14 @@ devDependencies:
   '@testing-library/jest-dom': 5.16.1
   '@testing-library/svelte': 3.0.3_svelte@3.45.0
   '@tsconfig/svelte': 2.0.1
+  '@types/jest': 27.4.0
   babel-jest: 27.4.6_@babel+core@7.16.7
   jest: 27.4.7
   svelte: 3.45.0
   svelte-check: 2.2.11_@babel+core@7.16.7+svelte@3.45.0
   svelte-jester: 2.1.5_jest@27.4.7+svelte@3.45.0
   svelte-preprocess: 4.10.1_174cfa5ccbe6d41c74f982deb2ba7fc2
-  ts-jest: 27.1.2_fb0ac01116d5d8b1cb4f3433e32eec15
+  ts-jest: 27.1.2_c82cf09a8c20c9f058da33995250bf96
   tslib: 2.3.1
   typescript: 4.5.4
   vite: 2.7.10
@@ -4184,7 +4186,7 @@ packages:
       punycode: 2.1.1
     dev: true
 
-  /ts-jest/27.1.2_fb0ac01116d5d8b1cb4f3433e32eec15:
+  /ts-jest/27.1.2_c82cf09a8c20c9f058da33995250bf96:
     resolution: {integrity: sha512-eSOiJOWq6Hhs6Khzk5wKC5sgWIXgXqOCiIl1+3lfnearu58Hj4QpE5tUhQcA3xtZrELbcvAGCsd6HB8OsaVaTA==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     hasBin: true
@@ -4206,6 +4208,7 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.16.7
+      '@types/jest': 27.4.0
       babel-jest: 27.4.6_@babel+core@7.16.7
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0

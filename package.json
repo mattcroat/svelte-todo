@@ -17,6 +17,7 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/svelte": "^3.0.3",
     "@tsconfig/svelte": "^2.0.1",
+    "@types/jest": "^27.4.0",
     "babel-jest": "^27.4.6",
     "jest": "^27.4.7",
     "svelte": "^3.44.0",
