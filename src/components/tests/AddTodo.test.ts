@@ -21,7 +21,7 @@ test('input should have focus on page load', () => {
 test('user is able to type into the input', async () => {
   renderAddTodo()
 
-  let inputValue = 'Watch Cowboy Bebop'
+  let inputValue = 'Todo Item'
 
   let todoInputElement = screen.getByPlaceholderText(/what needs to be done/i)
   await fireEvent.change(todoInputElement, { target: { value: inputValue } })
@@ -31,7 +31,7 @@ test('user is able to type into the input', async () => {
 test('user is able to submit todo', async () => {
   let { addTodo } = renderAddTodo()
 
-  let inputValue = 'Watch Cowboy Bebop'
+  let inputValue = 'Todo Item'
 
   let todoInputElement = screen.getByPlaceholderText(/what needs to be done/i)
   await fireEvent.change(todoInputElement, { target: { value: inputValue } })

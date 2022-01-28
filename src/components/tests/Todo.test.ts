@@ -14,12 +14,12 @@ function renderTodo(todo) {
 }
 
 test('should display todo item', () => {
-  renderTodo({ id: 1, text: 'Todo Item', completed: false })
+  renderTodo({ id: '1', text: 'Todo Item', completed: false })
   expect(screen.getByText(/todo/i)).toBeInTheDocument()
 })
 
 test('should be able to check and uncheck todo item as completed', async () => {
-  renderTodo({ id: 1, text: 'Todo Item', completed: false })
+  renderTodo({ id: '1', text: 'Todo Item', completed: false })
 
   let todoInput = screen.getByTestId(/todo/i)
   await fireEvent.click(todoInput)
@@ -30,13 +30,17 @@ test('should be able to check and uncheck todo item as completed', async () => {
 })
 
 test('should have class of completed when checked', async () => {
-  renderTodo({ id: 1, text: 'Todo Item', completed: true })
+  renderTodo({ id: '1', text: 'Todo Item', completed: true })
   let todoItem = screen.getByText(/todo item/i)
   expect(todoItem).toHaveClass('completed')
 })
 
 test('should update todo item when you press enter', async () => {
-  let { editTodo } = renderTodo({ id: 1, text: 'Todo Item', completed: false })
+  let { editTodo } = renderTodo({
+    id: '1',
+    text: 'Todo Item',
+    completed: false,
+  })
 
   let todoItem = screen.getByText(/todo item/i)
   await fireEvent.dblClick(todoItem)
@@ -46,8 +50,12 @@ test('should update todo item when you press enter', async () => {
   expect(editTodo).toHaveBeenCalled()
 })
 
-test('should save todo item when you press escape', async () => {
-  let { editTodo } = renderTodo({ id: 1, text: 'Todo Item', completed: false })
+test('should update todo item when you press escape', async () => {
+  let { editTodo } = renderTodo({
+    id: '1',
+    text: 'Todo Item',
+    completed: false,
+  })
 
   let todoItem = screen.getByText(/todo item/i)
   await fireEvent.dblClick(todoItem)
